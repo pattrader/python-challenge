@@ -57,14 +57,17 @@ with open(path) as csvfile:
   print(f'Greatest Decrease in Profits: {min_month} (${min})')
 
 # Specify the file to write to
-output_path = os.path.join(".", "analysis", "PyPoll.csv")
-with open(output_path, 'w', newline='') as csvfile:
+output_path = os.path.join(".", "analysis", "pybank_text.txt")
+with open(output_path, 'w', newline='') as txtfile:
 
-  # Initialize csv.writer and seperating each cell by comma
-  csvwriter = csv.writer(csvfile, delimiter=',')
-  # Write each row 
-  csvwriter.writerow(['Total Months:', (total_months)])
-  csvwriter.writerow(['Total $:', (money)])
-  csvwriter.writerow(['Agerage Change $', (round(total_chg/(total_months-1),2))])
-  csvwriter.writerow(['Greatest Increase in Profits:',(max_month),(max)])
-  csvwriter.writerow(['Greatest Decrease in Profits:',(min_month),(min)])
+  # Initialize text writer and writting all the lines
+  txtfile.write(f'Total Months: {total_months}')
+  txtfile.write('\n')
+  txtfile.write(f'Total: ${money}')
+  txtfile.write('\n')
+  txtfile.write(f'Average Change:  ${round(total_chg/(total_months-1),2)}')
+  txtfile.write('\n')
+  txtfile.write(f'Greatest Increase in Profits: {max_month} (${max})')
+  txtfile.write('\n')
+  txtfile.write(f'Greatest Decrease in Profits: {min_month} (${min})')
+  txtfile.write('\n')

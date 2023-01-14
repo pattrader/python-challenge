@@ -53,18 +53,24 @@ print('---------------------------')
 print(f'Winner: {winner}')
 
 # Specify the file to write to
-output_path = os.path.join(".", "analysis", "PyPoll.csv")
-with open(output_path, 'w', newline='') as csvfile:
-
-  # Initialize csv.writer and seperating each cell by comma
-  csvwriter = csv.writer(csvfile, delimiter=',')
-  # Write each row 
-  csvwriter.writerow(['Election Results'])
-  csvwriter.writerow(['----------------------'])
-  csvwriter.writerow(['Total Votes', (total_count)])
-  csvwriter.writerow(['----------------------'])
-  csvwriter.writerow(['Charles Casper Stockham:',(round(c_vote/total_count * 100,3)),(c_vote)])
-  csvwriter.writerow(['Diana DeGette:',(round(d_vote/total_count * 100,3)),(d_vote)])
-  csvwriter.writerow(['Raymon Anthony Doane:',(round(r_vote/total_count * 100,3)),(r_vote)])
-  csvwriter.writerow(['----------------------'])
-  csvwriter.writerow(['Winner', winner])
+output_path = os.path.join(".", "analysis", "pypoll_text.txt")
+with open(output_path, 'w', newline='') as txtfile:
+ 
+ # Initialize text writer and writting all the lines
+    txtfile.write('Election Results')
+    txtfile.write('\n')
+    txtfile.write('---------------------------')
+    txtfile.write('\n')
+    txtfile.write(f'Total Votes {total_count}')
+    txtfile.write('\n')
+    txtfile.write('---------------------------')
+    txtfile.write('\n')
+    txtfile.write(f'Charles Casper Stockham: {round(c_vote/total_count * 100,3)}% ({c_vote})')
+    txtfile.write('\n')
+    txtfile.write(f'Diana DeGette: {round(d_vote/total_count * 100,3)}% ({d_vote})')
+    txtfile.write('\n')
+    txtfile.write(f'Raymon Anthony Doane: {round(r_vote/total_count * 100,3)}% ({r_vote})')
+    txtfile.write('\n')
+    txtfile.write('---------------------------')
+    txtfile.write('\n')
+    txtfile.write(f'Winner: {winner}')
