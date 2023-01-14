@@ -13,11 +13,12 @@ with open(path) as csvfile:
 
       # Read the header row first (skip this step if there is now header)
   csv_header = next(csvreader)
-
+  # Calculating total count and intializing all the varibales to count all the votes
   total_count = 0
   c_vote = 0
   d_vote = 0
   r_vote = 0
+  # Simple if formulas to count vote by name
   for row in csvreader:
     total_count +=  1
     if row[2] == 'Charles Casper Stockham':
@@ -27,12 +28,12 @@ with open(path) as csvfile:
     if row[2] == 'Raymon Anthony Doane':
         r_vote += 1
 
-
+# Creating dictonary to keep count by name 
 member = {c_vote:'Charles Casper Stockham',
           d_vote:'Diana DeGette',
           r_vote:'Raymon Anthony Doane',
 }
-
+# If statement to get the winner
 if c_vote > d_vote and c_vote > r_vote:
     winner = (member[c_vote])
 elif d_vote > c_vote and d_vote > r_vote:
@@ -40,6 +41,7 @@ elif d_vote > c_vote and d_vote > r_vote:
 else: 
     winner = (member[r_vote])
 
+# All the print functions
 print('Election Results')
 print('---------------------------')
 print(f'Total Votes {total_count}')
